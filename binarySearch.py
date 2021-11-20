@@ -1,37 +1,19 @@
-
-def binary_earch(arr, x):
-    low = 0
-    high = len(arr) - 1
-    mid = 0
-    while low <= high:
-        mid = (low + high)//2
-        if arr[mid] > x:
-            high = mid - 1
-        elif arr[mid] < x:
-            low = mid + 1
-        else:
-            return mid
-    else:
-        return -1
-
-
-def binary_search(list, x):
-    low = 0
-    high = len(list) - 1
-    mid = 0
-    while low <= high:
+def binary_search(arr, low, high, x):
+    arr = sorted(arr)
+    if low <= high:
         mid = (low + high) // 2
-        if list[mid] < x:
-            low = mid + 1
-        elif list[mid] > x:
-            high = mid - 1
+        if arr[mid] == x:
+            return "at index: " + str(mid)
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
         else:
-            return mid
-    return -1
+            return binary_search(arr, mid + 1, high, x)
+    else:
+        return "not present in list!!"
 
 
-#
-# test
-list = [1, 3, 5, 7, 9]
-result = binary_earch(list, 9)
-print(result)
+if __name__ == '__main__':
+    import numpy as np
+    array = np.random.randint(1, 30, 10)
+    print(sorted(array))
+    print(binary_search(array, 0, len(array) - 1, 9))
