@@ -1,7 +1,7 @@
-def softmax(x):
-    import numpy as np
-    e_x = np.exp(x - np.max(x))
-    return e_x/e_x.sum(axis=0)
+def softmax(vector):
+    from numpy import exp
+    e = exp(vector)
+    return e/e.sum()
 
 
 if __name__ == '__main__':
