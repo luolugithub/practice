@@ -1,3 +1,23 @@
+def quick_sort(lists):
+    """
+    simple full code for quick sort
+    """
+    if len(lists) <= 1:
+        return lists
+    pivot = lists[0]
+
+    left_list = []
+    right_list = []
+    for x in lists[1:]:
+        if x < pivot:
+            left_list.append(x)
+        else:
+            right_list.append(x)
+    return quick_sort(left_list) + [pivot] + quick_sort(right_list)
+
+
+# *********************** method 2 **************************************
+
 def partion(arr, left, right):
     if left >= right:
         return
