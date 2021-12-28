@@ -17,3 +17,4 @@ if __name__ == '__main__':
     array = np.random.randint(1, 30, 10)
     print(sorted(array))
     print(binary_search(array, 0, len(array) - 1, 9))
+    # 3.1415 9265 3589 7932 3864
